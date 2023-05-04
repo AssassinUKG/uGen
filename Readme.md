@@ -47,7 +47,7 @@ email_variations:
 To install uGen.py name managler, simply clone or download the repository and install the required packages using pip:
 
 ```bash
-git clone https://github.com/richardjones-namegen/name-variations.git
+git clone https://github.com/AssassinUKG/uGen.git
 cd name-variations
 pip install -r requirements.txt
 ```
