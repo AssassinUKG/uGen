@@ -15,6 +15,15 @@ $ python3 uGen.py -n "John Smith" -e example.org -s 1992
 ```
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
 
+## Installation
+To install uGen.py name managler, simply clone or download the repository and install the required packages using pip:
+
+```bash
+git clone https://github.com/AssassinUKG/uGen.git
+cd uGen
+pip install -r requirements.txt
+```
+
 ## Configuration file
 The configuration file is a YAML file that contains the variations to be used in generating name and email variations. The variations section contains the name variations, and the email_variations section contains the email variations.  
 You can add or remove variations to suit your needs.
@@ -99,15 +108,6 @@ Email & suffix
 ```
 Smith1992@example.org
 JSmith1992@example.org
-```
-
-## Installation
-To install uGen.py name managler, simply clone or download the repository and install the required packages using pip:
-
-```bash
-git clone https://github.com/AssassinUKG/uGen.git
-cd uGen
-pip install -r requirements.txt
 ```
 
 ## Help
