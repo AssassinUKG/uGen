@@ -1,0 +1,45 @@
+variations:
+  - ["{first}", "{last}"]             # First Last
+  - ["{first}", ".", "{last}"]        # First.Last
+  - ["{first[0]}", ".", "{last}"]     # F.Last
+  - ["{first}", "{last}"]             # FirstLast
+  - ["{first[0]}", "{last}"]          # FLast
+  - ["{first.lower()}", ".", "{last.lower()}"]   # first.last
+  - ["{first[0].lower()}", ".", "{last.lower()}"] # f.last
+  - ["{first}", "_", "{last}"]        # First_Last
+  - ["{first[0]}", "_", "{last}"]     # F_Last
+  - ["{first}", "-", "{last}"]        # First-Last
+  - ["{first[0]}", "-", "{last}"]     # F-Last
+  - ["{first}", "_", "{last[0]}"]     # First_L
+  - ["{first[0]}", "_", "{last[0]}"]  # F_L
+  - ["{first}", "-", "{last[0]}"]     # First-L
+  - ["{first[0]}", "-", "{last[0]}"]  # F-L
+  - ["{first.lower()}", "_", "{last.lower()}"]   # first_last
+  - ["{first[0].lower()}", "_", "{last.lower()}"]# f_last
+  - ["{first.lower()}", "-", "{last.lower()}"]   # first-last
+  - ["{first[0].lower()}", "-", "{last.lower()}"]# f-last
+  - ["{last}", ",",  "{first}"]  # Last,First
+  - ["{last.lower()}", ",", "{first.lower()}"] # last,first
+  - ["{last}", ",", "{first[0]}."] # Last,F.
+  - ["{last.lower()}", ",", "{first[0].lower()}."] # last,f.
+  - ["{last}", "-", "{first}"]        # Last-First
+  - ["{last.lower()}", "-", "{first.lower()}"] # last-first
+  - ["{last}", "_", "{first}"]        # Last_First
+  - ["{last.lower()}", "_", "{first.lower()}"] # last_first
+  - ["{last[0]}", ".", "{first}"]     # L.First
+  - ["{last[0]}", ".", "{first[0]}"]  # L.F
+  - ["{last[0]}", "_", "{first}"]     # L_First
+  - ["{last[0]}", "_", "{first[0]}"]  # L_F
+  - ["{last[0]}", "-", "{first}"]     # L-First
+  - ["{last[0]}", "{first}"]    # lFirst
+  - ["{last[0]}", "{first.lower()}"]    # lFirst
+email_variations:
+  - '{first}.{last}@{domain}'
+  - '{first[0]}.{last}@{domain}'
+  - '{last[0]}.{first}@{domain}'
+  - '{first}{last}@{domain}'
+  - '{first[0]}{last}@{domain}'
+  - '{last}.{first}@{domain}'
+  - '{last}{first}@{domain}'
+  - '{first}@{domain}'
+  - '{last}@{domain}'
