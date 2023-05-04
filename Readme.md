@@ -1,4 +1,7 @@
 # uGen.py
+
+![image](https://user-images.githubusercontent.com/5285547/236194462-f2e8c37c-f185-4317-9682-26e9801e60b3.png)
+
 uGen.py name managler is a Python command-line tool for generating variations of names and email addresses based on a configuration file. It provides a flexible way to generate a wide range of name and email variations, which can be useful for creating usernames or email addresses for a large number of users.
 
 Usage
