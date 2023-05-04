@@ -8,9 +8,9 @@ To use the uGen.py name managler, simply run the main.py script and provide the 
 Example usage:
 
 ```python
-$ python main.py -n "John Smith"
-$ python main.py -n "John Smith" -e example.org
-$ python main.py -n "John Smith" -c name_variations.yaml -e example.org
+$ python3 uGen.py -n "John Smith"
+$ python3 uGen.py -n "John Smith" -e example.org
+$ python3 uGen.py -n "John Smith" -c name_variations.yaml -e example.org
 $ python3 uGen.py -n "John Smith" -e example.org -s 1992
 ```
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
