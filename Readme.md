@@ -88,4 +88,4 @@ pip install -r requirements.txt
 ```
 
 ## License
-uGen/py name managler is licensed under the MIT License. See the LICENSE file for details.
+uGen.py name managler is licensed under the MIT License. See the LICENSE file for details.
