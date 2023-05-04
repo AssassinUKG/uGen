@@ -83,7 +83,7 @@ To install uGen.py name managler, simply clone or download the repository and in
 
 ```bash
 git clone https://github.com/AssassinUKG/uGen.git
-cd name-variations
+cd uGen
 pip install -r requirements.txt
 ```
 
