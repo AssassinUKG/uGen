@@ -104,5 +104,24 @@ cd uGen
 pip install -r requirements.txt
 ```
 
+## Help
+
+```sh
+usage: uGen.py [-h] [-n NAME] [-c FILE] [-e DOMAIN] [-s SUFFIX] [-v]
+
+Generate name variations
+
+options:
+  -h, --help            show this help message and exit
+  -n NAME, --name NAME  The name to generate variations for
+  -c FILE, --config FILE
+                        The name variations configuration file (default: name_variations.yaml)
+  -e DOMAIN, --email-domain DOMAIN
+                        the domain to use for the generated email addresses (default: example.com)
+  -s SUFFIX, --suffix SUFFIX
+                        The suffix to add to the generated email addresses (default: )
+  -v, --verbose         print verbose output
+```
+
 ## License
 uGen.py name managler is licensed under the MIT License. See the LICENSE file for details.

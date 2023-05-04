@@ -28,23 +28,6 @@ def name_variations(name, variations):
     
     return result
 
-# def email_variations(name, domain, config):
-#     # Split the name into first and last name
-#     first, last = name.split()
-    
-#     # Get the email variations from the configuration file
-#     email_variations = config
-    
-#     # Create a list of email variations using different separators and domains
-#     result = []
-#     for variation in email_variations:
-#         # Evaluate any expressions in the variation
-#         formatted_variation = eval(f'f"""{variation}"""')
-        
-#         # Add the formatted variation to the result list
-#         result.append(formatted_variation.replace('{domain}', domain))
-    
-#     return result
 def email_variations(name, domain, config, suffix):
     # Split the name into first and last name
     first, last = name.split()
@@ -90,19 +73,32 @@ if __name__ == '__main__':
         with open(args.config) as f:
             pass
     except FileNotFoundError:
-        print(f"ERROR: The file {args.config} does not exist")
+        print(f"[!] The file {args.config} does not exist")
         exit(1)
 
     if args.name is None:
-        print(f"ERROR: The name is not specified: -n \"Richard Jones\"")
+        print(f"[!] The name is not specified: -n \"Richard Jones\"")
         exit(1)
     if args.name:
         try:
             f,l = args.name.split()
         except ValueError:
-            print(f"ERROR: The name is not in the correct format (firstname lastname), ie: -n \"Richard Jones\"")
+            print(f"[!] The name is not in the correct format (firstname lastname), ie: -n \"Richard Jones\"")
             exit(1)
     
+    if args.verbose:
+        banner = r"""
+         ________                                 
+ __ __  /  _____/  ____   ____      ______ ___.__.
+|  |  \/   \  ____/ __ \ /    \     \____ <   |  |
+|  |  /\    \_\  \  ___/|   |  \    |  |_> >___  |
+|____/  \______  /\___  >___|  / /\ |   __// ____|
+               \/     \/     \/  \/ |__|   \/     
+"""
+        print(banner)
+        print("[-] uGen.py - Generate name variations for use in password spraying and phishing campaigns")
+        print("[-] Created by: Richard Jones from defencelogic.io, on 04-05-2023")
+                
 
     # Load the name variations configuration from the file
     with open(args.config) as f:
@@ -123,14 +119,14 @@ if __name__ == '__main__':
     # Print the name variations
     if not email_supplied:
         if args.verbose:
-            print(f"Generating name variations for {args.name} using configuration file {args.config}...")
+            print(f"[+] Generating name variations for {args.name} using configuration file {args.config}...")
         for name_variation in name_variations:
             print(name_variation)
 
     # Generate email variations if requested
     else:
         email_variations = email_variations(args.name, args.email_domain, email_variation, args.suffix)
+        if args.verbose:
+            print(f"[+] Generating email variations for {args.name} using domain {args.email_domain}...")
         for email_variation in email_variations:
             print(email_variation)
-        if args.verbose:
-            print(f"Generating email variations for {args.name} using domain {args.email_domain}...")
