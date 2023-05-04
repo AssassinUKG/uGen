@@ -43,3 +43,5 @@ email_variations:
   - '{last}{first}@{domain}'
   - '{first}@{domain}'
   - '{last}@{domain}'
+  - '{last}{suffix}@{domain}' # suffix example
+  - '{first[0]}{last}{suffix}@{domain}' # suffix example

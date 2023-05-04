@@ -28,7 +28,24 @@ def name_variations(name, variations):
     
     return result
 
-def email_variations(name, domain, config):
+# def email_variations(name, domain, config):
+#     # Split the name into first and last name
+#     first, last = name.split()
+    
+#     # Get the email variations from the configuration file
+#     email_variations = config
+    
+#     # Create a list of email variations using different separators and domains
+#     result = []
+#     for variation in email_variations:
+#         # Evaluate any expressions in the variation
+#         formatted_variation = eval(f'f"""{variation}"""')
+        
+#         # Add the formatted variation to the result list
+#         result.append(formatted_variation.replace('{domain}', domain))
+    
+#     return result
+def email_variations(name, domain, config, suffix):
     # Split the name into first and last name
     first, last = name.split()
     
@@ -41,11 +58,16 @@ def email_variations(name, domain, config):
         # Evaluate any expressions in the variation
         formatted_variation = eval(f'f"""{variation}"""')
         
+        # Add the suffix before the domain name, if specified
+        if suffix:
+            formatted_variation = formatted_variation.replace('{suffix}', suffix)
+        else:
+            formatted_variation = formatted_variation.replace('{suffix}', '')
+        
         # Add the formatted variation to the result list
         result.append(formatted_variation.replace('{domain}', domain))
     
     return result
-
 
 if __name__ == '__main__':
     # Define the command-line arguments
@@ -55,7 +77,8 @@ if __name__ == '__main__':
                         help='The name variations configuration file (default: %(default)s)')
     parser.add_argument('-e', '--email-domain', metavar='DOMAIN', default='example.com',
                         help='the domain to use for the generated email addresses (default: %(default)s)')
-   
+    parser.add_argument('-s', '--suffix', metavar='SUFFIX', default='',
+                        help='The suffix to add to the generated email addresses (default: %(default)s)')
     parser.add_argument('-v', '--verbose', action='store_true', help='print verbose output')
     
     # Parse the command-line arguments
@@ -106,7 +129,7 @@ if __name__ == '__main__':
 
     # Generate email variations if requested
     else:
-        email_variations = email_variations(args.name, args.email_domain, email_variation)
+        email_variations = email_variations(args.name, args.email_domain, email_variation, args.suffix)
         for email_variation in email_variations:
             print(email_variation)
         if args.verbose:
