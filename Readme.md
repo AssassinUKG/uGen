@@ -21,19 +21,18 @@ Example configuration file:
 
 ```yaml
 variations:
-  - ["{first}.{last}", "{domain}"]      # First.Last@example.com
-  - ["{last}.{first}", "{domain}"]      # Last.First@example.com
-  - ["{first[0]}{last}", "{domain}"]    # FLast@example.com
-  - ["{last}{first[0]}", "{domain}"]    # LastF@example.com
-  - ["{first}{last}", "{domain}"]       # FirstLast@example.com
-  - ["{last}{first}", "{domain}"]       # LastFirst@example.com
-  - ["{last[0]}", ".", "{first}"]       # L.First
-  - ["{last[0]}", ".", "{first[0]}"]    # L.F
-  - ["{last[0]}", "_", "{first}"]       # L_First
-  - ["{last[0]}", "_", "{first[0]}"]    # L_F
-  - ["{last[0]}", "-", "{first}"]       # L-First
-  - ["{last[0]}", "{first}"]            # lFirst
-  - ["{last[0]}", "{first.lower()}"]    # lfirst
+  - ["{first}", "{last}"]             # First Last
+  - ["{first}", ".", "{last}"]        # First.Last
+  - ["{first[0]}", ".", "{last}"]     # F.Last
+  - ["{first}", "{last}"]             # FirstLast
+  - ["{first[0]}", "{last}"]          # FLast
+  - ["{first.lower()}", ".", "{last.lower()}"]   # first.last
+  - ["{first[0].lower()}", ".", "{last.lower()}"] # f.last
+  - ["{first}", "_", "{last}"]        # First_Last
+  - ["{first[0]}", "_", "{last}"]     # F_Last
+  - ["{first}", "-", "{last}"]        # First-Last
+  - ["{first[0]}", "-", "{last}"]     # F-Last
+  - ["{first}", "_", "{last[0]}"]     # First_L
 
 email_variations:
   - '{first}.{last}@{domain}'
