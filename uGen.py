@@ -77,13 +77,13 @@ if __name__ == '__main__':
         exit(1)
 
     if args.name is None:
-        print(f"[!] The name is not specified: -n \"Richard Jones\"")
+        print(f"[!] The name is not specified: -n \"John Smith\"")
         exit(1)
     if args.name:
         try:
             f,l = args.name.split()
         except ValueError:
-            print(f"[!] The name is not in the correct format (firstname lastname), ie: -n \"Richard Jones\"")
+            print(f"[!] The name is not in the correct format (firstname lastname), ie: -n \"John Smith\"")
             exit(1)
     
     if args.verbose:
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 |____/  \______  /\___  >___|  / /\ |   __// ____|
                \/     \/     \/  \/ |__|   \/     
 """
-        print(banner)
+        print(f"\033[36m{banner}\033[0m")
         print("[-] uGen.py - Generate name variations for use in password spraying and phishing campaigns")
         print("[-] Created by: Richard Jones from defencelogic.io, on 04-05-2023")
                 
