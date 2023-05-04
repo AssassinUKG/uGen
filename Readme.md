@@ -14,7 +14,8 @@ $ python main.py -n "John Smith" -c name_variations.yaml -e example.org
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
 
 ## Configuration file
-The configuration file is a YAML file that contains the variations to be used in generating name and email variations. The variations section contains the name variations, and the email_variations section contains the email variations. You can add or remove variations to suit your needs.
+The configuration file is a YAML file that contains the variations to be used in generating name and email variations. The variations section contains the name variations, and the email_variations section contains the email variations.  
+You can add or remove variations to suit your needs.
 
 Example configuration file:
 
@@ -41,6 +42,40 @@ email_variations:
   - '{first[0]}{last}@{domain}'
   - '{last}.{first}@{domain}'
   - '{last}{first}@{domain}'
+```
+
+## Output
+Normal
+```
+HarryJones
+Harry.Jones
+H.Jones
+HarryJones
+HJones
+harry.jones
+h.jones
+Harry_Jones
+H_Jones
+~ snip ~
+J.Harry
+J.H
+J_Harry
+J_H
+J-Harry
+JHarry
+Jharry
+```
+Email
+```
+Harry.Jones@somedom.com
+H.Jones@somedom.com
+J.Harry@somedom.com
+HarryJones@somedom.com
+HJones@somedom.com
+Jones.Harry@somedom.com
+JonesHarry@somedom.com
+Harry@somedom.com
+Jones@somedom.com
 ```
 
 ## Installation
