@@ -10,6 +10,7 @@ Example usage:
 $ python main.py -n "John Smith"
 $ python main.py -n "John Smith" -e example.org
 $ python main.py -n "John Smith" -c name_variations.yaml -e example.org
+python3 uGen.py -n "John Smith" -e example.org -s 1992
 ```
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
 
@@ -21,19 +22,18 @@ Example configuration file:
 
 ```yaml
 variations:
-  - ["{first}.{last}", "{domain}"]      # First.Last@example.com
-  - ["{last}.{first}", "{domain}"]      # Last.First@example.com
-  - ["{first[0]}{last}", "{domain}"]    # FLast@example.com
-  - ["{last}{first[0]}", "{domain}"]    # LastF@example.com
-  - ["{first}{last}", "{domain}"]       # FirstLast@example.com
-  - ["{last}{first}", "{domain}"]       # LastFirst@example.com
-  - ["{last[0]}", ".", "{first}"]       # L.First
-  - ["{last[0]}", ".", "{first[0]}"]    # L.F
-  - ["{last[0]}", "_", "{first}"]       # L_First
-  - ["{last[0]}", "_", "{first[0]}"]    # L_F
-  - ["{last[0]}", "-", "{first}"]       # L-First
-  - ["{last[0]}", "{first}"]            # lFirst
-  - ["{last[0]}", "{first.lower()}"]    # lfirst
+  - ["{first}", "{last}"]             # First Last
+  - ["{first}", ".", "{last}"]        # First.Last
+  - ["{first[0]}", ".", "{last}"]     # F.Last
+  - ["{first}", "{last}"]             # FirstLast
+  - ["{first[0]}", "{last}"]          # FLast
+  - ["{first.lower()}", ".", "{last.lower()}"]   # first.last
+  - ["{first[0].lower()}", ".", "{last.lower()}"] # f.last
+  - ["{first}", "_", "{last}"]        # First_Last
+  - ["{first[0]}", "_", "{last}"]     # F_Last
+  - ["{first}", "-", "{last}"]        # First-Last
+  - ["{first[0]}", "-", "{last}"]     # F-Last
+  - ["{first}", "_", "{last[0]}"]     # First_L
 
 email_variations:
   - '{first}.{last}@{domain}'
@@ -47,35 +47,52 @@ email_variations:
 ## Output
 Normal
 ```
-HarryJones
-Harry.Jones
-H.Jones
-HarryJones
-HJones
-harry.jones
-h.jones
-Harry_Jones
-H_Jones
-~ snip ~
-J.Harry
-J.H
-J_Harry
-J_H
-J-Harry
-JHarry
-Jharry
+JohnSmith
+John.Smith
+J.Smith
+JohnSmith
+JSmith
+john.smith
+j.smith
+John_Smith
+J_Smith
+John-Smith
+J-Smith
+John_S
+J_S
+John-S
+J-S
+john_smith
+j_smith
+john-smith
+j-smith
+Smith,John
+smith,john
+Smith,J.
+smith,j.
+Smith-John
+smith-john
+Smith_John
+smith_john
+S.John
+S.J
+S_John
+S_J
+S-John
+SJohn
+Sjohn
 ```
 Email
 ```
-Harry.Jones@somedom.com
-H.Jones@somedom.com
-J.Harry@somedom.com
-HarryJones@somedom.com
-HJones@somedom.com
-Jones.Harry@somedom.com
-JonesHarry@somedom.com
-Harry@somedom.com
-Jones@somedom.com
+John.Smith@somedom.com
+J.Smith@somedom.com
+S.John@somedom.com
+JohnSmith@somedom.com
+JSmith@somedom.com
+Smith.John@somedom.com
+SmithJohn@somedom.com
+John@somedom.com
+Smith@somedom.com
 ```
 
 ## Installation
@@ -88,4 +105,4 @@ pip install -r requirements.txt
 ```
 
 ## License
-uGen/py name managler is licensed under the MIT License. See the LICENSE file for details.
+uGen.py name managler is licensed under the MIT License. See the LICENSE file for details.
