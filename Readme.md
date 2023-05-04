@@ -1,18 +1,31 @@
 # uGen.py
+
+![image](https://user-images.githubusercontent.com/5285547/236194670-dcfd8f1a-0109-4c9b-a2f8-86444f55c275.png)
+
 uGen.py name managler is a Python command-line tool for generating variations of names and email addresses based on a configuration file. It provides a flexible way to generate a wide range of name and email variations, which can be useful for creating usernames or email addresses for a large number of users.
 
 Usage
-To use the uGen.py name managler, simply run the main.py script and provide the name to generate variations for using the -n or --name option. You can also specify a different configuration file using the -c or --config option, and a different email domain using the -e or --email-domain option.
+To use the uGen.py name managler, simply run the main.py script and provide the name to generate variations for using the -n or --name option. You can also specify a different configuration file using the -c or --config option, and a different email domain using the -e or --email-domain option. 
+> You can also supply a suffix for emails only. 
 
 Example usage:
 
 ```python
-$ python main.py -n "John Smith"
-$ python main.py -n "John Smith" -e example.org
-$ python main.py -n "John Smith" -c name_variations.yaml -e example.org
-python3 uGen.py -n "John Smith" -e example.org -s 1992
+$ python3 uGen.py -n "John Smith"
+$ python3 uGen.py -n "John Smith" -e example.org
+$ python3 uGen.py -n "John Smith" -c name_variations.yaml -e example.org
+$ python3 uGen.py -n "John Smith" -e example.org -s 1992
 ```
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
+
+## Installation
+To install uGen.py name managler, simply clone or download the repository and install the required packages using pip:
+
+```bash
+git clone https://github.com/AssassinUKG/uGen.git
+cd uGen
+pip install -r requirements.txt
+```
 
 ## Configuration file
 The configuration file is a YAML file that contains the variations to be used in generating name and email variations. The variations section contains the name variations, and the email_variations section contains the email variations.  
@@ -94,14 +107,10 @@ SmithJohn@somedom.com
 John@somedom.com
 Smith@somedom.com
 ```
-
-## Installation
-To install uGen.py name managler, simply clone or download the repository and install the required packages using pip:
-
-```bash
-git clone https://github.com/AssassinUKG/uGen.git
-cd uGen
-pip install -r requirements.txt
+Email & suffix
+```
+Smith1992@example.org
+JSmith1992@example.org
 ```
 
 ## Help
