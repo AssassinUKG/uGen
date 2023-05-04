@@ -2,7 +2,8 @@
 uGen.py name managler is a Python command-line tool for generating variations of names and email addresses based on a configuration file. It provides a flexible way to generate a wide range of name and email variations, which can be useful for creating usernames or email addresses for a large number of users.
 
 Usage
-To use the uGen.py name managler, simply run the main.py script and provide the name to generate variations for using the -n or --name option. You can also specify a different configuration file using the -c or --config option, and a different email domain using the -e or --email-domain option.
+To use the uGen.py name managler, simply run the main.py script and provide the name to generate variations for using the -n or --name option. You can also specify a different configuration file using the -c or --config option, and a different email domain using the -e or --email-domain option. 
+> You can also supply a suffix for emails only. 
 
 Example usage:
 
@@ -93,6 +94,11 @@ Smith.John@somedom.com
 SmithJohn@somedom.com
 John@somedom.com
 Smith@somedom.com
+```
+Email & suffix
+```
+Smith1992@example.org
+JSmith1992@example.org
 ```
 
 ## Installation
