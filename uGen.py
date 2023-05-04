@@ -96,9 +96,9 @@ if __name__ == '__main__':
                \/     \/     \/  \/ |__|   \/     
 """
         print(f"\033[36m{banner}\033[0m")
-        print("[-] uGen.py - Generate name variations for use in password spraying and phishing campaigns")
-        print("[-] Created by: Richard Jones from defencelogic.io, on 04-05-2023")
-                
+        print("uGen.py - Generate name variations for use in password spraying and phishing campaigns")
+        print("Created by: Richard Jones from defencelogic.io, on 04-05-2023")
+        print() 
 
     # Load the name variations configuration from the file
     with open(args.config) as f:
