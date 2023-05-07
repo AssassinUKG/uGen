@@ -1,7 +1,7 @@
 # uGen.py
 
 ## Menu
-- [Information](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#information)
+- [Information](https://github.com/AssassinUKG/uGen/Readme.md#information)
 - [Usage](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#usage)
 - [Screenshots](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#screenshots)
 - [Installation](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#installation)
