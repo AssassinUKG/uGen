@@ -12,6 +12,7 @@ Example usage:
 
 ```python
 $ python3 uGen.py -n "John Smith"
+$ python3 uGen.py -n list_of_usernames.txt
 $ python3 uGen.py -n "John Smith" -e example.org
 $ python3 uGen.py -n "John Smith" -c name_variations.yaml -e example.org
 $ python3 uGen.py -n "John Smith" -e example.org -s 1992
