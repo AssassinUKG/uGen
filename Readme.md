@@ -133,5 +133,9 @@ options:
   -v, --verbose         print verbose output
 ```
 
+## Changelog
+
+07/05/2023 - Added ability to use username of file of usernames
+
 ## License
 uGen.py name managler is licensed under the MIT License. See the LICENSE file for details.
