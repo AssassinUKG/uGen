@@ -4,9 +4,11 @@
 # Date 04-05-2023
 # Purpose: Generate name variations for use in password spraying and phishing campaigns
 
+# Updated: 07-04-2023
+# Purpose: Added ability to read file of names or one name from command line
+
 import argparse
 import yaml
-import threading
 import os
 
 def name_variations(name, variations):
@@ -94,7 +96,7 @@ if __name__ == '__main__':
         print(f"\033[36m{banner}\033[0m")
         print("uGen.py - Generate name variations for use in password spraying and phishing campaigns")
         print("Created by: Richard Jones from defencelogic.io, on 04-05-2023")
-        print() 
+        print("Updated: 07-04-2023") 
 
     with open(args.config) as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
