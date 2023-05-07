@@ -122,7 +122,7 @@ Generate name variations
 
 options:
   -h, --help            show this help message and exit
-  -n NAME, --name NAME  The name to generate variations for
+  -n NAME, --name NAME  The name or file of names to generate variations for. (Format per line: firstname lastname)
   -c FILE, --config FILE
                         The name variations configuration file (default: name_variations.yaml)
   -e DOMAIN, --email-domain DOMAIN
