@@ -6,6 +6,9 @@ variations:
   - ["{first[0]}", "{last}"]          # FLast
   - ["{first.lower()}", ".", "{last.lower()}"]   # first.last
   - ["{first[0].lower()}", ".", "{last.lower()}"] # f.last
+  - ["{first[0].lower()}","{last.lower()}"] # flast
+  - ["{last[0].lower()}","{first.lower()}"] # lfirst
+  - ["{last[0].lower()}",".","{first.lower()}"] # l.first
   - ["{first}", "_", "{last}"]        # First_Last
   - ["{first[0]}", "_", "{last}"]     # F_Last
   - ["{first}", "-", "{last}"]        # First-Last
@@ -45,3 +48,4 @@ email_variations:
   - '{last}@{domain}'
   - '{last}{suffix}@{domain}' # suffix example
   - '{first[0]}{last}{suffix}@{domain}' # suffix example
+  - '{first[0]}{last}{suffix[-2:]}@{domain}' # suffix example (last 2 digits)

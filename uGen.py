@@ -6,6 +6,8 @@
 
 import argparse
 import yaml
+import threading
+import os
 
 def name_variations(name, variations):
     # needed variable holders
@@ -33,11 +35,11 @@ def email_variations(name, domain, config, suffix):
     first, last = name.split()
     
     # Get the email variations from the configuration file
-    email_variations = config
+    email_variations_config = config
     
     # Create a list of email variations using different separators and domains
     result = []
-    for variation in email_variations:
+    for variation in email_variations_config:
         # Evaluate any expressions in the variation
         formatted_variation = eval(f'f"""{variation}"""')
         
@@ -52,10 +54,14 @@ def email_variations(name, domain, config, suffix):
     
     return result
 
+
+
+
+
 if __name__ == '__main__':
     # Define the command-line arguments
     parser = argparse.ArgumentParser(description='Generate name variations')
-    parser.add_argument('-n', '--name', metavar='NAME', help='The name to generate variations for')
+    parser.add_argument('-n', '--name', metavar='NAME', help='The name or file of names to generate variations for. (Format per line: firstname lastname)')
     parser.add_argument('-c', '--config', metavar='FILE', default='name_variations.yaml',
                         help='The name variations configuration file (default: %(default)s)')
     parser.add_argument('-e', '--email-domain', metavar='DOMAIN', default='example.com',
@@ -76,16 +82,6 @@ if __name__ == '__main__':
         print(f"[!] The file {args.config} does not exist")
         exit(1)
 
-    if args.name is None:
-        print(f"[!] The name is not specified: -n \"John Smith\"")
-        exit(1)
-    if args.name:
-        try:
-            f,l = args.name.split()
-        except ValueError:
-            print(f"[!] The name is not in the correct format (firstname lastname), ie: -n \"John Smith\"")
-            exit(1)
-    
     if args.verbose:
         banner = r"""
          ________                                 
@@ -100,33 +96,41 @@ if __name__ == '__main__':
         print("Created by: Richard Jones from defencelogic.io, on 04-05-2023")
         print() 
 
-    # Load the name variations configuration from the file
     with open(args.config) as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     variations = config['variations']
-    email_variation = config['email_variations']
+    email_variations_config = config['email_variations']
     
-    # if domain is supplied then don't generate name variations
-    email_supplied = False
-    if args.email_domain != 'example.com':
-        email_supplied = True
-
-
-
-    # Generate the name variations for the given name
-    name_variations = name_variations(args.name, variations)
+    # check if email domain is supplied
+    email_supplied = args.email_domain != 'example.com'
     
-    # Print the name variations
-    if not email_supplied:
-        if args.verbose:
-            print(f"[+] Generating name variations for {args.name} using configuration file {args.config}...")
-        for name_variation in name_variations:
-            print(name_variation)
-
-    # Generate email variations if requested
+    # read names from file or use the given name
+    if os.path.isfile(args.name):
+        with open(args.name) as f:
+            names = [line.strip() for line in f]
     else:
-        email_variations = email_variations(args.name, args.email_domain, email_variation, args.suffix)
-        if args.verbose:
-            print(f"[+] Generating email variations for {args.name} using domain {args.email_domain}...")
-        for email_variation in email_variations:
-            print(email_variation)
+        names = [args.name]
+        
+        # generate email variations if requested
+    if email_supplied:
+        for name in names:
+            email_vars = email_variations(name, args.email_domain, email_variations_config, args.suffix)
+            if args.verbose:
+                print(f"[+] Generating email variations for {name} using domain {args.email_domain}...")
+            for email_variation in email_vars:
+                print(email_variation)
+    else:
+        for name in names:
+            if not name:
+                print("[!] The name is not specified: -n \"John Smith\"")
+                exit(1)
+            try:
+                first, last = name.split()
+            except ValueError:
+                print("[!] The name is not in the correct format (firstname lastname), ie: -n \"John Smith\"")
+                exit(1)
+            name_vars = name_variations(name, variations)
+            if args.verbose:
+                print(f"[+] Generating name variations for {name} using configuration file {args.config}...")
+            for name_variation in name_vars:
+                print(name_variation)
