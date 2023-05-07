@@ -153,7 +153,7 @@ options:
 
 ### Changelog
 
-07/05/2023 - Added ability to use username of file of usernames
+07/05/2023 - Added ability to use username or a file of usernames
 
 ### License
 uGen.py name managler is licensed under the MIT License. See the LICENSE file for details.
