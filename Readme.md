@@ -1,15 +1,15 @@
 # uGen.py
 
 ## Menu
-- [Information](https://github.com/AssassinUKG/uGen/Readme.md#information)
-- [Usage](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#usage)
-- [Screenshots](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#screenshots)
-- [Installation](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#installation)
-- [Configuration File](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#configuration-file)
-- [Output Example](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#output)
-- [Help](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#help)
-- [Changelog](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#changelog)
-- [Licence](https://github.com/AssassinUKG/uGen/edit/master/Readme.md#licence)
+- [Information](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#information)
+- [Usage](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#usage)
+- [Screenshots](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#screenshots)
+- [Installation](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#installation)
+- [Configuration File](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#configuration-file)
+- [Output Example](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#output)
+- [Help](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#help)
+- [Changelog](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#changelog)
+- [Licence](https://github.com/AssassinUKG/uGen/blob/master/Readme.md#licence)
 
 ### Information 
 uGen.py name managler is a Python command-line tool for generating variations of names and email addresses based on a configuration file. It provides a flexible way to generate a wide range of name and email variations, which can be useful for creating usernames or email addresses for a large number of users.
