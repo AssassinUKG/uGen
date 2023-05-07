@@ -25,6 +25,7 @@ $ python3 uGen.py -n "John Smith"
 $ python3 uGen.py -n list_of_usernames.txt
 $ python3 uGen.py -n "John Smith" -e example.org
 $ python3 uGen.py -n "John Smith" -c name_variations.yaml -e example.org
+$ python3 uGen.py -n list_of_usernames.txt -c name_variations.yaml -e example.org
 $ python3 uGen.py -n "John Smith" -e example.org -s 1992
 ```
 >This will generate name and email variations for the name "John Smith" using the variations specified in the variations.yaml configuration file and the email domain example.org.
@@ -70,6 +71,8 @@ email_variations:
   - '{first[0]}{last}@{domain}'
   - '{last}.{first}@{domain}'
   - '{last}{first}@{domain}'
+  - '{first[0]}{last}{suffix}@{domain}' # suffix example
+  - '{first[0]}{last}{suffix[-2:]}@{domain}' # suffix example (last 2 digits)
 ```
 
 ### Output
@@ -126,6 +129,7 @@ Email & suffix
 ```
 Smith1992@example.org
 JSmith1992@example.org
+JSmith92@example.org
 ```
 
 ### Help
